@@ -515,11 +515,11 @@ jobs:
   displayName: 'Linux Ubuntu Dual Stack'
   steps:
   - script: |
+      export OPENSSL_ia32cap=0x00000000
+      sudo chmod -R 755 .
       sudo -E ./jenkins/ubuntu_c_ipv6_dual_stack.sh
     displayName: 'Build'
   - script: |
-      export OPENSSL_ia32cap=0x00000000
-      sudo chmod -R 755 .
       cd cmake && sudo -E ../build_all/linux/run_tests.sh
     displayName: "Run Tests"
     env:
