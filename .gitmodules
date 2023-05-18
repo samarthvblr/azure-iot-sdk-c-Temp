@@ -1,6 +1,7 @@
 [submodule "azure-c-shared-utility"]
 	path = c-utility
 	url = https://github.com/Azure/azure-c-shared-utility.git
+	branch = raulleclair/ipv6-build-test
 [submodule "azure-umqtt-c"]
 	path = umqtt
 	url = https://github.com/Azure/azure-umqtt-c.git
