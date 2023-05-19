@@ -509,7 +509,7 @@ jobs:
       testRunTitle: 'ubuntuRIOT'
     condition: succeededOrFailed()
 - job: ipv6dualstack
-  container: linux-c-ubuntu-2204
+  container: linux-c-ubuntu-2004
   pool:
     name: 'sdk-c--ubuntu-18'
   displayName: 'Linux Ubuntu Dual Stack'
