@@ -596,7 +596,7 @@ jobs:
       mergeTestResults: true
       testRunTitle: 'ubuntuIPv6DualStack'
     condition: succeededOrFailed()
-- job: ipv6dualstack2204
+- job: ipv6dualstack2204valg
   container: linux-c-ubuntu-2204
   pool:
     name: 'sdk-c--ubuntu-18'
@@ -709,7 +709,7 @@ jobs:
       IOT_DPS_INDIVIDUAL_X509_CERTIFICATE: $(IOTHUB-E2E-X509-ECC-CERT-BASE64)
       IOT_DPS_INDIVIDUAL_X509_KEY: $(IOTHUB-E2E-X509-ECC-PRIVATE-KEY-BASE64)
       IOT_DPS_INDIVIDUAL_REGISTRATION_ID: $(IOT-DPS-INDIVIDUAL-REGISTRATION-ID)
-- job: ipv6dualstack2204
+- job: ipv6dualstack2204noe2e
   container: linux-c-ubuntu-2204
   pool:
     name: 'sdk-c--ubuntu-18'
