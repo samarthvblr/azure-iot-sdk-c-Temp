@@ -379,6 +379,7 @@ jobs:
       testRunTitle: 'ubuntu2004release'
     condition: succeededOrFailed()
 - job: ubuntu2204build
+  timeoutInMinutes: 90
   container: linux-c-ubuntu-2204
   pool:
     name: 'sdk-c--ubuntu-22'
@@ -467,6 +468,7 @@ jobs:
       testRunTitle: 'ubuntuRIOT'
     condition: succeededOrFailed()
 - job: ubuntu2004dualipstack
+  timeoutInMinutes: 90
   container: linux-c-ubuntu-2004
   pool:
     name: 'sdk-c--ubuntu-22'
