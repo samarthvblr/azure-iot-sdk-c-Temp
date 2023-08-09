@@ -841,7 +841,7 @@ jobs:
   variables:
     CodeQL.Enabled: false
   pool:
-    vmImage: 'macOS-12'
+    vmImage: 'macOS-11'
   steps:
   - script: |
       ./jenkins/osx_gcc_openssl.sh
