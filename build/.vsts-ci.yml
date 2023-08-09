@@ -382,7 +382,7 @@ jobs:
   container: linux-c-ubuntu-2204
   pool:
     name: 'sdk-c--ubuntu-22'
-  displayName: 'Ubuntu 22.04 Unit Tests (Debug)'
+  displayName: 'Ubuntu 22.04 (Debug)'
   steps:
   - script: |
       cat /etc/*release | grep VERSION*
@@ -519,6 +519,7 @@ jobs:
       gcc --version
       openssl version
       curl --version
+      sudo chmod -R 755 .
       sudo -E ./jenkins/ubuntu_c_ipv6_dual_stack.sh
     displayName: 'Build'
   - script: |
