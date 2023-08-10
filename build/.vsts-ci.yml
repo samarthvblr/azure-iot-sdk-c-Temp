@@ -386,10 +386,6 @@ jobs:
   displayName: 'Ubuntu 22.04 (Debug)'
   steps:
   - script: |
-      cat /etc/*release | grep VERSION*
-      gcc --version
-      openssl version
-      curl --version
       sudo -E ./jenkins/ubuntu_c.sh
     displayName: 'Build'
   - script: |
