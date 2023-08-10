@@ -507,6 +507,7 @@ jobs:
       testRunTitle: 'ubuntu2004dualipstack'
     condition: succeededOrFailed()
 - job: ubuntu2204dualipstack
+  timeoutInMinutes: 90
   container: linux-c-ubuntu-2204
   pool:
     name: 'sdk-c--ubuntu-22'
