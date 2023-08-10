@@ -1,4 +1,3 @@
-    ...
 {
     CRYPTO_malloc allow customization race in OpenSSL
     Helgrind:Race
