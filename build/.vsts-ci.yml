@@ -882,7 +882,7 @@ jobs:
   variables:
     CodeQL.Enabled: false
   pool:
-    name: OSX
+    vmImage: 'macOS-11'
   displayName: "Xcode Native"
   steps:
   - script: |
