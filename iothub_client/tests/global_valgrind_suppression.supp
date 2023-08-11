@@ -167,35 +167,6 @@
    fun:get_time_ns
 }
 {
-   OpenSSL/libp11-0.4.11
-   drd:MutexErr
-   fun:pthread_mutex_destroy
-   obj:/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
-   fun:_dl_fini
-   fun:__run_exit_handlers
-   fun:exit
-   fun:(below main)
-}
-{
-   OpenSSL/libp11-0.4.11
-   drd:MutexErr
-   fun:pthread_mutex_destroy
-   fun:_dl_fini
-   fun:__run_exit_handlers
-   fun:exit
-   fun:(below main)
-}
-{
-   OpenSSL/libp11-0.4.11
-   Helgrind:Misc
-   obj:/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so
-   ...
-   fun:_dl_fini
-   fun:__run_exit_handlers
-   fun:exit
-   fun:(below main)
-}
-{
    cURL/OpenSSL/libp11-0.4.11
    Memcheck:Leak
    match-leak-kinds: definite
@@ -318,38 +289,20 @@
    fun:main
 }
 {
-   DRD thinks LOCK_HANDLE is not a mutex
+   OpenSSL/libp11-0.4.11
    drd:MutexErr
-   fun:pthread_mutex_destroy
-   obj:/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+   fun:pthread_mutex_destroy@*
+   ...
    fun:_dl_fini
    fun:__run_exit_handlers
    fun:exit
    fun:(below main)
 }
 {
-   DRD thinks LOCK_HANDLE is not a mutex
-   drd:MutexErr
-   fun:pthread_mutex_destroy
-   fun:_dl_fini
-   fun:__run_exit_handlers
-   fun:exit
-   fun:(below main)
-}
-{
-   Helgrind thinks LOCK_HANDLE is not a mutex
+   OpenSSL/libp11-0.4.11
    Helgrind:Misc
-   obj:/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so
-   fun:_dl_fini
-   fun:__run_exit_handlers
-   fun:exit
-   fun:(below main)
-}
-{
-   Helgrind thinks LOCK_HANDLE is not a mutex
-   Helgrind:Misc
-   obj:/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so
-   obj:/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+   obj:vgpreload_helgrind-amd64-linux.so
+   ...
    fun:_dl_fini
    fun:__run_exit_handlers
    fun:exit
@@ -667,22 +620,11 @@
 }
 {
     <insert_a_suppression_name_here>
-    drd:MutexErr
-    fun:pthread_mutex_destroy@*
-    ...
-    fun:_dl_fini
-    fun:__run_exit_handlers
-    fun:exit
-    ...
-}
-{
-    <insert_a_suppression_name_here>
     drd:ConflictingAccess
     fun:HTTPAPIEX_Init
-    fun:platform_init
-    fun:IoTHub_Init
-    fun:RecvMessage
-    fun:IoTHub_HTTP_RecvMessage_E2ETest_x509
+    fun:IoTHubTransportHttp_Create
+    fun:IoTHubTransport_Create
+    ...
     fun:RunTests
     fun:main
 }
@@ -696,11 +638,7 @@
     ...
     fun:ThreadAPI_Create
     fun:StartWorkerThreadIfNeeded
-    fun:startHttpWorkerThread
-    fun:IoTHubClientCore_UploadMultipleBlocksToBlobAsync
-    fun:IoTHubClient_UploadMultipleBlocksToBlobAsyncEx
-    fun:e2e_uploadtoblob_multiblock_test
-    fun:IoTHub_MQTT_UploadMultipleBlocksAbort
+    ...
     fun:RunTests
     fun:main
 }
@@ -719,8 +657,105 @@
     fun:HTTPAPIEX_SAS_ExecuteRequest
     fun:sendHttpRequestCRUD
     fun:IoTHubRegistryManager_DeleteDevice
-    fun:IoTHubAccount_deinit
+    ...
     fun:TestSuiteCleanup
     fun:RunTests
     fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   drd:ConflictingAccess
+   ...
+   fun:sprintf_s
+   fun:Http_MacroSend
+   fun:IoTClient_Http_MacroSend_e2e_x509
+   fun:RunTests
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   drd:ConflictingAccess
+   fun:CodeFirst_CreateDevice
+   fun:Http_MacroSend
+   fun:IoTClient_Http_MacroSend_e2e_x509
+   fun:RunTests
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   drd:ConflictingAccess
+   ...
+   fun:printf
+   fun:create_client_handle
+   ...
+   fun:RunTests
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   fun:HTTPAPIEX_Init
+   fun:platform_init
+   fun:IoTHub_Init
+   fun:RecvMessage
+   ...
+   fun:RunTests
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   ...
+   fun:printf
+   fun:RecvMessage
+   ...
+   fun:RunTests
+   fun:main
+}
+{
+    <insert_a_suppression_name_here>
+    drd:ConflictingAccess
+    fun:HTTPAPIEX_Init
+    fun:platform_init
+    fun:IoTHub_Init
+    fun:RecvMessage
+    ...
+    fun:RunTests
+    fun:main
+}
+{
+    <insert_a_suppression_name_here>
+    Helgrind:Race
+    fun:HTTPAPIEX_Init
+    fun:IoTHubTransportHttp_Create
+    ...
+    fun:RunTests
+    fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   ...
+   fun:puts
+   fun:ctest_vsprintf_char
+   fun:ctest_sprintf_char
+   fun:IoTHub_HTTP_SendEvent_Shared_e2e
+   fun:RunTests
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   drd:ConflictingAccess
+   fun:uploadToBlobCallback
+   fun:uploadingThread
+   fun:ThreadWrapper
+   ...
+}
+{
+   <insert_a_suppression_name_here>
+   drd:ConflictingAccess
+   fun:e2e_uploadtoblob_multiblock_test
+   fun:IoTHub_MQTT_UploadMultipleBlocksNoData
+   fun:RunTests
+   fun:main
 }
