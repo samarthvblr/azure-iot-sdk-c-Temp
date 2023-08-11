@@ -291,7 +291,7 @@
 {
    OpenSSL/libp11-0.4.11
    drd:MutexErr
-   fun:pthread_mutex_destroy@*
+   fun:pthread_mutex_destroy*
    ...
    fun:_dl_fini
    fun:__run_exit_handlers
@@ -301,7 +301,7 @@
 {
    OpenSSL/libp11-0.4.11
    Helgrind:Misc
-   obj:vgpreload_helgrind-amd64-linux.so
+   obj:*vgpreload_helgrind-amd64-linux.so
    ...
    fun:_dl_fini
    fun:__run_exit_handlers
