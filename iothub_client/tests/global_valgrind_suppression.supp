@@ -291,12 +291,20 @@
 {
    OpenSSL/libp11-0.4.11
    drd:MutexErr
-   fun:pthread_mutex_destroy*
+   fun:pthread_mutex_destroy
    ...
    fun:_dl_fini
    fun:__run_exit_handlers
-   fun:exit
-   fun:(below main)
+   ...
+}
+{
+   OpenSSL/libp11-0.4.11
+   drd:MutexErr
+   fun:pthread_mutex_destroy@*
+   ...
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   ...
 }
 {
    OpenSSL/libp11-0.4.11
@@ -623,7 +631,6 @@
     drd:ConflictingAccess
     fun:HTTPAPIEX_Init
     fun:IoTHubTransportHttp_Create
-    fun:IoTHubTransport_Create
     ...
     fun:RunTests
     fun:main
@@ -632,11 +639,9 @@
     <insert_a_suppression_name_here>
     Helgrind:Race
     fun:memset
-    fun:get_cached_stack
-    fun:allocate_stack
-    fun:pthread_create@@GLIBC_2.34
     ...
     fun:ThreadAPI_Create
+    ...
     fun:StartWorkerThreadIfNeeded
     ...
     fun:RunTests
@@ -665,6 +670,16 @@
 {
    <insert_a_suppression_name_here>
    drd:ConflictingAccess
+   fun:HTTPAPIEX_ExecuteRequest
+   fun:HTTPAPIEX_SAS_ExecuteRequest
+   fun:DoEvent
+   fun:IoTHubTransportHttp_DoWork
+   fun:transport_worker_thread
+    ...
+}
+{
+   <insert_a_suppression_name_here>
+   drd:ConflictingAccess
    ...
    fun:sprintf_s
    fun:Http_MacroSend
@@ -676,10 +691,7 @@
    <insert_a_suppression_name_here>
    drd:ConflictingAccess
    fun:CodeFirst_CreateDevice
-   fun:Http_MacroSend
-   fun:IoTClient_Http_MacroSend_e2e_x509
-   fun:RunTests
-   fun:main
+   ...
 }
 {
    <insert_a_suppression_name_here>
