@@ -843,7 +843,23 @@
    fun:IoTHubTransportHttp_DoWork
    fun:transport_worker_thread
    fun:ThreadWrapper
-   obj:/usr/libexec/valgrind/vgpreload_drd-amd64-linux.so
-   fun:start_thread
-   fun:clone
+   ...
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   fun:uploadToBlobGetDataEx
+   fun:IoTHubClient_LL_UploadToBlob_UploadMultipleBlocks
+   fun:IoTHubClientCore_LL_UploadMultipleBlocksToBlobEx
+   fun:uploadMultipleBlock_thread
+   fun:ThreadWrapper
+   ...
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   fun:e2e_uploadtoblob_multiblock_test
+   fun:IoTHub_MQTT_UploadMultipleBlocksToBlobEx
+   fun:RunTests
+   fun:main
 }
