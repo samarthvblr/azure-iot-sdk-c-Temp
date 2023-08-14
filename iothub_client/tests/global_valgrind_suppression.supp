@@ -248,7 +248,6 @@
    <insert_a_suppression_name_here>
    Helgrind:Misc
    ...
-   fun:curl_multi_perform
    fun:curl_easy_perform
    fun:HTTPAPI_ExecuteRequest
    fun:HTTPAPIEX_ExecuteRequest
