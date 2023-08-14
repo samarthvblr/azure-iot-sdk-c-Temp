@@ -331,7 +331,7 @@
    fun:_dl_fini
    fun:__run_exit_handlers
    fun:exit
-   fun:(below main)
+   ...
 }
 {
    OpenSSL/libp11-0.4.11
@@ -878,4 +878,42 @@
    fun:IoTHub_MQTT_UploadMultipleBlocksToBlobEx
    fun:RunTests
    fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   ...
+   fun:IoTHubClientCore_Destroy
+   fun:IoTHubClient_Destroy
+   fun:e2e_uploadtoblob_multiblock_test
+   fun:IoTHub_MQTT_UploadMultipleBlocksAbort
+   fun:RunTests
+   obj:*
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   fun:garbageCollectorImpl
+   obj:*
+   fun:IoTHubClient_Destroy
+   fun:e2e_uploadtoblob_multiblock_test
+   fun:IoTHub_MQTT_UploadMultipleBlocksAbort
+   fun:RunTests
+   obj:*
+   obj:*
+}
+
+{
+   <insert_a_suppression_name_here>
+   Helgrind:Race
+   fun:singlylinkedlist_get_head_item
+   fun:IoTHub_MQTT_UploadCloseHandle_Before_WorkersComplete
+   fun:garbageCollectorImpl
+   obj:*
+   obj:*
+   obj:/__w/1/s/cmake/iothub_client/tests/iothubclient_uploadtoblob_e2e/iothubclient_uploadtoblob_e2e_exe
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+   obj:*
+   fun:Lock
 }
