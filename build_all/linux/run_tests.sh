@@ -12,4 +12,4 @@ TEST_CORES=16
 # Refresh dynamic libs to link to
 sudo ldconfig
 
-ctest -T test --no-compress-output -C "Debug" -V -j $TEST_CORES --schedule-random
+ctest -T test --no-compress-output -C "Debug" -V -j $TEST_CORES --schedule-random --timeout 800
