@@ -9,6 +9,15 @@
    fun:(below main)
 }
 {
+   <insert_a_suppression_name_here>
+   Helgrind:Misc
+   obj:/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:(below main)
+}
+{
     CRYPTO_malloc allow customization race in OpenSSL
     Helgrind:Race
     obj:/*lib*/libcrypto*
